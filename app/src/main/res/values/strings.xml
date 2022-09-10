@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">LoginDemo</string>
+    <string name="sim_1">Sim 1</string>
+
+    //thêm các tab vào để gọi bên hàm main
+    <string name="tab_danhba_title">Danh bạ</string>
+    <string name="tab_ganday_title">Gần đây</string>
+    <string name="tab_banphim_title">Bàn Phím</string>
+
+
+</resources>

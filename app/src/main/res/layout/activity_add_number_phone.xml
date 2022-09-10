@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F6F6"
+    android:orientation="vertical"
+    tools:context=".AddNumberPhoneActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:text="Sim 1"
+        android:layout_margin="5dp"
+        android:id="@+id/tvTilte"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/boder"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_user"/>
+
+        <EditText
+            android:id="@+id/edName"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:hint="Tên" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:orientation="horizontal"
+        android:background="@drawable/boder"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_call"/>
+
+        <EditText
+            android:id="@+id/edPhone"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:hint="Điện thoại" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="150dp"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/btnCancel"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Thoát"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:onClick="cancel"
+            android:fontFamily="@font/roboto_bold"
+            android:layout_margin="5dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            style="@style/Widget.AppCompat.ButtonBar.AlertDialog"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/btnSave"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Lưu"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:fontFamily="@font/roboto_bold"
+            android:layout_margin="5dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            style="@style/Widget.AppCompat.ButtonBar.AlertDialog"
+            />
+    </LinearLayout>
+</LinearLayout>

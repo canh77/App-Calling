@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lnmsg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/imgbackmsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="0"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:onClick="cancelPhoneBook"
+        android:src="@drawable/ic_backss" />
+
+    <TextView
+        android:id="@+id/tvNameUsermsg"
+        android:layout_width="182dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="8"
+        android:gravity="center|left"
+        android:text="It Me"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/imgggmeetmsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:layout_weight="0"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:onClick="goGgmeet"
+        android:src="@drawable/ic_recordpb" />
+
+    <ImageView
+        android:id="@+id/imgphonemsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:layout_weight="0"
+        android:src="@drawable/ic_callmsg" />
+
+    <ImageView
+        android:id="@+id/imgfindmsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:layout_weight="0"
+        android:src="@drawable/ic_searchmsg" />
+
+    <ImageView
+        android:id="@+id/imgothermsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:layout_weight="0"
+        android:src="@drawable/ic_othermsg" />
+</LinearLayout>

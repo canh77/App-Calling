@@ -14,7 +14,6 @@ public class GoogleMeetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_meet);
-
         imgSelectedNational = findViewById(R.id.imgSelectedNational);
 
 
@@ -28,5 +27,6 @@ public class GoogleMeetActivity extends AppCompatActivity {
     public void goHelp(View view) {
         Intent intent = new Intent(GoogleMeetActivity.this,HelpGgMeetActivity.class);
         startActivity(intent);
+        finish();
     }
 }

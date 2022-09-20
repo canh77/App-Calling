@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/mn_deletepbook"
+        android:title="Xoá danh bạ" />
+    <item
+        android:id="@+id/mn_sharepbook"
+        android:title="Chia sẻ danh bạ" />
+    <item
+        android:id="@+id/mn_numberspeedpbook"
+        android:title="Số quay nhanh" />
+    <item
+        android:id="@+id/mn_openviewbeforepbook"
+        android:title="Mở ra mục xem trước đó" />
+    <item
+        android:id="@+id/mn_managerpbook"
+        android:title="Quản lí danh bạ" />
+    <item
+        android:id="@+id/mn_garbagepbook"
+        android:title="Thùng rác" />
+
+    <item
+        android:id="@+id/mn_settingpbook"
+        android:title="Cài đặt" />
+
+    <item
+        android:id="@+id/contactuspbook"
+        android:title="Liên hệ chúng tôi" />
+
+</menu>

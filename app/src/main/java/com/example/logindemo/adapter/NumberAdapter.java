@@ -2,10 +2,13 @@ package com.example.logindemo.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.logindemo.R;
 import com.example.logindemo.model.Number;
+import com.google.android.material.internal.TextWatcherAdapter;
 
 import java.util.List;
 
@@ -24,15 +28,16 @@ public class NumberAdapter extends RecyclerView.Adapter<NumberAdapter.NumberVH> 
 
     private NumberListener numberListener;
     private ToastNumber toastNumber;
-    //triênr khai sự kiên trong interface
+    //triển khai sự kiên trong interface
     private ShowNumber showNumber;
+    //    TextView tvNumber;
+    ImageView img_deletekeyboard, img_googlekeyboard;
 
     public NumberAdapter(List<Number> numbers, Context context, NumberListener numberListener, ToastNumber toastNumber, ShowNumber showNumber) {
         this.numbers = numbers;
         this.context = context;
         this.numberListener = numberListener;
         this.toastNumber = toastNumber;
-        //
         this.showNumber = showNumber;
     }
 
@@ -60,11 +65,11 @@ public class NumberAdapter extends RecyclerView.Adapter<NumberAdapter.NumberVH> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                toastNumber.toast(number.getTitle());
+//              toastNumber.toast(number.getTitle());
                 showNumber.show(number.getTitle());
+
             }
         });
-
     }
 
     @Override
@@ -79,11 +84,9 @@ public class NumberAdapter extends RecyclerView.Adapter<NumberAdapter.NumberVH> 
 
         public NumberVH(View itemView) {
             super(itemView);
-
             tvNumber = itemView.findViewById(R.id.tvNumber);
             tvTextNumber = itemView.findViewById(R.id.tvTextNumber);
             lnNumber = itemView.findViewById(R.id.lnNumber);
-
         }
     }
 

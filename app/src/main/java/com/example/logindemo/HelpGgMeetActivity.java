@@ -33,28 +33,6 @@ public class HelpGgMeetActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
-//        getMenuInflater().inflate( R.menu.menu_view,menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.mn_postshare:
-//                Toast.makeText(this, "Đây là chia sẻ", Toast.LENGTH_SHORT).show();
-//                break;
-//            case R.id.mn_feedback:
-//                Toast.makeText(this, "Đây là phản hồi", Toast.LENGTH_SHORT).show();
-//                break;
-//            case R.id.mn_viewggplay:
-//                Toast.makeText(this, "Xem cửa hàng CHPlay", Toast.LENGTH_SHORT).show();
-//                break;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
-
 
     public void menu(View view) {
         PopupMenu menu = new PopupMenu(this, imghelpggmeet);

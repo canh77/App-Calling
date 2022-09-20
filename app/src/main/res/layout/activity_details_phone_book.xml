@@ -10,11 +10,11 @@
 
     <ImageView
         android:id="@+id/imgbackphonebook"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="30dp"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:onClick="backphonebook"
         android:src="@drawable/ic_backmsg" />
 
@@ -33,6 +33,7 @@
             android:src="@drawable/ic_circledetailpb" />
 
         <TextView
+            android:id="@+id/tvNamePhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -44,6 +45,7 @@
             android:textSize="25sp" />
 
         <TextView
+            android:id="@+id/tvNumberPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -75,6 +77,7 @@
                 android:textSize="15sp" />
 
             <ImageView
+                android:id="@+id/goSimPB"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -95,6 +98,7 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/bodercall"
                 android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:onClick="goCall"
                 android:padding="8dp"
                 android:src="@drawable/ic_call" />
 
@@ -105,6 +109,7 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/bodersms"
                 android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:onClick="goMessenger"
                 android:padding="12dp"
                 android:src="@drawable/ic_smsmsg" />
 
@@ -115,6 +120,7 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/boderggmet"
                 android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:onClick="goGoogleMeet"
                 android:padding="5dp"
                 android:src="@drawable/ic_googlemeet" />
 
@@ -137,6 +143,8 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/bodersim"
             android:fontFamily="@font/roboto_bold"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:onClick="goDiary"
             android:text="Nhật ký"
             android:textSize="20dp" />
 
@@ -148,6 +156,8 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/bodersim"
             android:fontFamily="@font/roboto_bold"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:onClick="goPositionCache"
             android:text="Vị trí bộ nhớ đệm"
             android:textSize="20dp" />
 
@@ -156,8 +166,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="230dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -171,6 +182,8 @@
                 android:id="@+id/imgeditpb"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:onClick="goEditNumberPhone"
                 android:src="@drawable/ic_edit" />
 
             <Button
@@ -191,6 +204,7 @@
                 android:id="@+id/imgsharepb"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_share" />
 
             <Button
@@ -211,6 +225,8 @@
                 android:id="@+id/imgotherpb"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:onClick="menudetailsphone"
                 android:src="@drawable/ic_otherpb" />
 
             <Button

@@ -19,7 +19,7 @@
             android:layout_marginEnd="16dp"
             android:text="Điện thoại"
             android:textColor="@color/black"
-            android:textSize="25dp"
+            android:textSize="30dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -55,8 +55,8 @@
 
             <ImageView
                 android:id="@+id/img_add"
-                android:layout_width="24dp"
-                android:layout_height="30dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_marginLeft="10dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:onClick="addPhone"
@@ -64,14 +64,15 @@
 
             <ImageView
                 android:id="@+id/img_search"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:layout_marginLeft="10dp"
                 android:src="@drawable/ic_search" />
 
             <ImageView
-                android:id="@+id/img_other"
-                android:layout_width="30dp"
+                android:id="@+id/img_otherpb"
+                android:layout_width="20dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="8dp"
                 android:src="@drawable/ic_icon_other" />

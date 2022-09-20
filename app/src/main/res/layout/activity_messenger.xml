@@ -14,15 +14,15 @@
         layout="@layout/item_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true" />
 
     <include
         android:id="@+id/contentMsg"
         layout="@layout/item_message"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/headerMsg"
-        android:layout_above="@id/lnnewTextInput"/>
+        android:layout_above="@id/lnnewTextInput"
+        android:layout_below="@id/headerMsg" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -113,6 +113,7 @@
                 android:visibility="gone" />
 
         </LinearLayout>
+
 
     </LinearLayout>
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Số quay nhanh"
+        android:id="@+id/mn_numberspeedkb"/>
+    <item android:title="Mở ra bàn phím"
+        android:id="@+id/mn_openkb"/>
+    <item android:title="Cài đặt"
+        android:id="@+id/mn_settingkb"/>
+    <item android:title="Liên hệ chúng tôi"
+        android:id="@+id/mn_contactuskb"/>
+
+</menu>

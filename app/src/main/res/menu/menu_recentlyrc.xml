@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mn_deleterc"
+        android:title="Xoá" />
+    <item
+        android:id="@+id/mn_goneblockrc"
+        android:title="Ẩn cuộc gọi bị chặn" />
+    <item
+        android:id="@+id/mn_sumtimerc"
+        android:title="Tổng thời gian gọi" />
+    <item
+        android:id="@+id/mn_openviewbeforerc"
+        android:title="Mở ra mục xem trước đó" />
+    <item
+        android:id="@+id/mn_settingrc"
+        android:title="Cài đặt" />
+    <item
+        android:id="@+id/mn_contactusrc"
+        android:title="Liên hệ chúng tôi" />
+
+</menu>

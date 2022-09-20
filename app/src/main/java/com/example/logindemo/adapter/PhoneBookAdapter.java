@@ -6,18 +6,22 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.logindemo.CallPhoneBookActivity;
 import com.example.logindemo.DetailsPhoneBookActivity;
+import com.example.logindemo.FindPhoneBookActivity;
 import com.example.logindemo.GoogleMeetActivity;
 import com.example.logindemo.MainActivity;
 import com.example.logindemo.MessengerActivity;
@@ -25,20 +29,31 @@ import com.example.logindemo.R;
 import com.example.logindemo.SelectedNationalPhoneActivity;
 import com.example.logindemo.model.PhoneBook;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PhoneBookAdapter extends RecyclerView.Adapter<PhoneBookAdapter.PhoneBookVH> {
 
-    //danh ba model
+    //danh bạ model
     List<PhoneBook> phoneBooks;
     Context context;
     String strId, strName, strPhone;
 
     private int mCurrentSelected = -2;
 
-    public PhoneBookAdapter(List<PhoneBook> phoneBooks, Context context) {
+    //tạo biến toàn cục UpdateNumber
+    private UpdateNumber updateNumber;
+
+
+    public PhoneBookAdapter(List<PhoneBook> phoneBooks, Context context, UpdateNumber updateNumber) {
         this.phoneBooks = phoneBooks;
         this.context = context;
+        this.updateNumber = updateNumber;
+    }
+
+    public PhoneBookAdapter(ArrayList<PhoneBook> phoneBooks, Context context) {
+//        this.phoneBooks = phoneBooks;
+//        this.context = context;
     }
 
     @NonNull
@@ -56,17 +71,17 @@ public class PhoneBookAdapter extends RecyclerView.Adapter<PhoneBookAdapter.Phon
 
         if (phoneBook == null) return;
 
-        if (mCurrentSelected == position){
+        if (mCurrentSelected == position) {
             holder.tvName.setTextColor(Color.BLUE);
             holder.details.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.tvName.setTextColor(Color.BLACK);
             holder.details.setVisibility(View.GONE);
         }
 
         //nếu có dữ liệu
         holder.tvName.setText(phoneBook.getName());
-        holder.tvPhoneNumber.setText("Điện thoại: "+strPhone);
+        holder.tvPhoneNumber.setText("Điện thoại: " + strPhone);
 
         //hiển thị chi tiết khi click vào item
         holder.lntop.setOnClickListener(view -> {
@@ -77,30 +92,21 @@ public class PhoneBookAdapter extends RecyclerView.Adapter<PhoneBookAdapter.Phon
             strName = phoneBook.getName();
             strPhone = phoneBook.getPhone();
 
-            Log.d("Detail: ",strId +" - "+ strPhone);
-
-//            holder.tvPhoneNumber.setText("Điện thoại: "+strPhone);
+            Log.d("Detail: ", strId + " - " + strPhone);
 
         });
-
-//        holder.img_id.setOnClickListener(view -> {
-//            holder.detail1.setVisibility(View.VISIBLE);
-//            holder.detail2.setVisibility(View.VISIBLE);
-//        });
-
     }
 
     @Override
     public int getItemCount() {
-        //số item phụ thuộc vào size
         return phoneBooks.size();
     }
 
 
     public class PhoneBookVH extends RecyclerView.ViewHolder {
-        TextView tvName;
-        ImageView img_id,imgphone,imgmessage,imggooglemeet,imgdetailpb;
-        TextView tvPhoneNumber;
+
+        ImageView img_id, imgphonebook, imgmessage, imggooglemeet, imgdetailpb, img_otherpb, img_search;
+        TextView tvName,tvPhoneNumber;
         LinearLayout details, lnbottom, lntop, detail1, detail2;
 
 
@@ -116,16 +122,21 @@ public class PhoneBookAdapter extends RecyclerView.Adapter<PhoneBookAdapter.Phon
 
             tvName = itemView.findViewById(R.id.tvName);
             img_id = itemView.findViewById(R.id.img_id);
-            imgphone = itemView.findViewById(R.id.imgphone);
+            imgphonebook = itemView.findViewById(R.id.imgphonebook);
             imgmessage = itemView.findViewById(R.id.imgmessage);
             imggooglemeet = itemView.findViewById(R.id.imggooglemeet);
             imgdetailpb = itemView.findViewById(R.id.imgdetailpb);
+            img_otherpb = itemView.findViewById(R.id.img_otherpb);
+            img_search = itemView.findViewById(R.id.img_search);
 
-
-            imgphone.setOnClickListener(new View.OnClickListener() {
+            imgphonebook.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, CallPhoneBookActivity.class);
+                    String username = tvName.getText().toString().trim();
+                    String phonenum = tvPhoneNumber.getText().toString();
+                    intent.putExtra("username",username);
+                    intent.putExtra("PhoneNumber",phonenum);
                     context.startActivity(intent);
                 }
             });
@@ -150,21 +161,18 @@ public class PhoneBookAdapter extends RecyclerView.Adapter<PhoneBookAdapter.Phon
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, DetailsPhoneBookActivity.class);
+                    String user = tvName.getText().toString().trim();
+                    String phone = tvPhoneNumber.getText().toString();
+                    intent.putExtra("user",user);
+                    intent.putExtra("phone",phone);
                     context.startActivity(intent);
                 }
             });
-
-
-
-
-
-
         }
+    }
 
+    public interface UpdateNumber {
+        void update(String number);
 
-//        public void resetLayout() {
-//            detail1.setVisibility(View.GONE);
-//            detail2.setVisibility(View.GONE);
-//        }
     }
 }

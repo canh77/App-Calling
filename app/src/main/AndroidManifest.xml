@@ -10,6 +10,42 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginDemo">
         <activity
+            android:name=".PossitionCacheActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VoiceMailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SumTimeCallActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ContactUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SelectedPhoneBookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SimPhoneBookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DiaryPhoneBookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SpeedDialActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GarbageCanPBookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ManagerPhoneBookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingPhoneActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FindPhoneBookActivity"
+            android:exported="false" />
+        <activity
             android:name=".HelpGgMeetActivity"
             android:exported="false" />
         <activity
@@ -39,6 +75,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        //BroadcastReceiver
+<!--        <receiver android:name="android.content.BroadcastReceiver"-->
+<!--            android:exported="false">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.AIRPLANE_MODE"/>-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
     </application>
 
 </manifest>

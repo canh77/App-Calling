@@ -8,16 +8,19 @@ import android.media.Image;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 public class MessengerActivity extends AppCompatActivity {
-    ImageView  imgbackmsg,imgsendmsg,imgiconmsg,imgsimmsg,imgiconmsgone,imgmicromsg;
+    ImageView  imgbackmsg,imgsendmsg,imgiconmsg,imgsimmsg,imgiconmsgone,imgmicromsg,imgothersmsg,imgphonemsg;
     EditText edTextInput;
     LinearLayout lnTextInput,lnstatus,lnnewstatus,lnnewTextInput;
-
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +38,34 @@ public class MessengerActivity extends AppCompatActivity {
         imgmicromsg = findViewById(R.id.imgmicromsg);
         imgsimmsg = findViewById(R.id.imgsimmsg);
         edTextInput = findViewById(R.id.edTextInput);
+        imgothersmsg = findViewById(R.id.imgothersmsg);
 
+        imgothersmsg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu menu =  new PopupMenu(getApplicationContext(),imgothersmsg);
+                menu.getMenuInflater().inflate(R.menu.menu_message,menu.getMenu());
+                menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
+                            case R.id.mn_save:
+                                intent = new Intent(getApplicationContext(),SettingPhoneActivity.class);
+                                startActivity(intent);
+                                finish();
+                                break;
+                            case R.id.mn_detail:
+                                intent = new Intent(getApplicationContext(),ContactUsActivity.class);
+                                startActivity(intent);
+                                finish();
+                                break;
+                        }
+                        return true;
+                    }
+                });
+                menu.show();
+            }
+        });
 
         edTextInput.addTextChangedListener(new TextWatcher() {
             @Override

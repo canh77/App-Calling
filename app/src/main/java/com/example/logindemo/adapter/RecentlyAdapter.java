@@ -2,6 +2,7 @@ package com.example.logindemo.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.logindemo.CallPhoneBookActivity;
+import com.example.logindemo.DetailsPhoneBookActivity;
+import com.example.logindemo.GoogleMeetActivity;
+import com.example.logindemo.MessengerActivity;
 import com.example.logindemo.R;
 import com.example.logindemo.model.PhoneBook;
 import com.example.logindemo.model.Recently;
@@ -101,7 +106,7 @@ public class RecentlyAdapter extends RecyclerView.Adapter<RecentlyAdapter.Recent
 
     public class RecentlyVH extends RecyclerView.ViewHolder {
         TextView tvName_recently, tvPhoneNumber_recently, tvCallaway_recently, tvTime;
-        ImageView img_id_recently;
+        ImageView img_id_recently,imgmessage_recently,imggooglemeet_recently,imgwarning_recently,imgphone_recently;
         LinearLayout lnbottom_recentl, lntop_recently, lndetails_recently, lndetail1_recently, lndetail2_recently;
 
 
@@ -118,6 +123,45 @@ public class RecentlyAdapter extends RecyclerView.Adapter<RecentlyAdapter.Recent
             lndetails_recently = itemView.findViewById(R.id.lndetails_recently);
             lndetail1_recently = itemView.findViewById(R.id.lndetail1_recently);
             lndetail2_recently = itemView.findViewById(R.id.lndetail2_recently);
+            imgmessage_recently = itemView.findViewById(R.id.imgmessage_recently);
+            imggooglemeet_recently = itemView.findViewById(R.id.imggooglemeet_recently);
+            imgwarning_recently = itemView.findViewById(R.id.imgwarning_recently);
+            imgphone_recently = itemView.findViewById(R.id.imgphone_recently);
+
+            imgphone_recently.setOnClickListener(view -> {
+                Intent intent = new Intent(context, CallPhoneBookActivity.class);
+                String username = tvName_recently.getText().toString().trim();
+                String phonenum = tvPhoneNumber_recently.getText().toString();
+                intent.putExtra("username",username);
+                intent.putExtra("PhoneNumber",phonenum);
+                context.startActivity(intent);
+            });
+
+            imgmessage_recently.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, MessengerActivity.class);
+                    context.startActivity(intent);
+                }
+            });
+
+            imggooglemeet_recently.setOnClickListener(view -> {
+                Intent intent = new Intent(context, GoogleMeetActivity.class);
+                context.startActivity(intent);
+            });
+
+            imgwarning_recently.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, DetailsPhoneBookActivity.class);
+                    //truyền dữ liệu sang ACdetail
+                    String user = tvName_recently.getText().toString().trim();
+                    String phone = tvPhoneNumber_recently.getText().toString();
+                    intent.putExtra("user",user);
+                    intent.putExtra("phone",phone);
+                    context.startActivity(intent);
+                }
+            });
 
         }
     }

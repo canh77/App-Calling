@@ -252,6 +252,11 @@ public class KeyBoardFragment extends Fragment implements NumberAdapter.NumberLi
     @Override
     public void toast(String numbers) {
         //   gitt
+
+
+
+
+
         Toast.makeText(getActivity(), numbers, Toast.LENGTH_SHORT).show();
     }
 

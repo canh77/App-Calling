@@ -24,5 +24,6 @@ public class SelectedNationalPhoneActivity extends AppCompatActivity {
     public void backggmeet(View view) {
         Intent intent = new Intent(SelectedNationalPhoneActivity.this,GoogleMeetActivity.class);
         startActivity(intent);
+        finish();
     }
 }

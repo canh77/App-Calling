@@ -10,24 +10,25 @@
         android:layout_height="wrap_content"
         android:text="Lọc cuộc gọi"
         android:paddingLeft="10dp"
+        android:textStyle="bold"
         android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
-    <TextView
+    <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="30dp"
         android:layout_marginTop="15sp"
         android:textColor="@color/black"
         android:text="Tất cả thẻ sim" />
-    <TextView
+    <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="30dp"
         android:layout_marginTop="15sp"
         android:textColor="@color/black"
         android:text="SIM 1" />
-    <TextView
+    <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="30dp"
@@ -44,32 +45,33 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="30dp"
-        android:layout_marginTop="15sp"
+        android:paddingLeft="10dp"
+        android:textStyle="bold"
+        android:layout_marginTop="18sp"
         android:textColor="@color/black"
         android:text="Tất cả cuộc gọi" />
-    <TextView
+    <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="30dp"
         android:layout_marginTop="15sp"
         android:textColor="@color/black"
         android:text="Các cuộc gọi nhỡ" />
-    <TextView
+    <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="30dp"
         android:layout_marginTop="15sp"
         android:textColor="@color/black"
         android:text="Cuộc gọi đã từ chối" />
-    <TextView
+    <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="30dp"
         android:layout_marginTop="15sp"
         android:textColor="@color/black"
         android:text="Các cuộc gọi đi" />
-    <TextView
+    <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="30dp"

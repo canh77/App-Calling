@@ -2,8 +2,14 @@ package com.example.logindemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -12,10 +18,20 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.logindemo.adapter.PhoneBookAdapter;
+import com.example.logindemo.model.PhoneBook;
+
+import java.util.ArrayList;
+
 public class DetailsPhoneBookActivity extends AppCompatActivity {
     ImageView imgbackphonebook, imgcallpb, imgmessagepb, imgotherpb;
     Button btndiarypb;
-    TextView tvNamePhoneNumber,tvNumberPhone;
+    TextView tvNamePhoneNumber, tvNumberPhone;
+
+    //Xóa phần tử
+    private PhoneBookAdapter phoneBookAdapter;
+    private ArrayList<PhoneBook> bookArrayList;
+    private ArrayList<PhoneBook> mBooks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +45,7 @@ public class DetailsPhoneBookActivity extends AppCompatActivity {
         tvNamePhoneNumber = findViewById(R.id.tvNamePhoneNumber);
         tvNumberPhone = findViewById(R.id.tvNumberPhone);
 
+
         //nhận dữ liệu
         String name = getIntent().getStringExtra("user");
         tvNamePhoneNumber.setText(name);
@@ -39,10 +56,11 @@ public class DetailsPhoneBookActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DetailsPhoneBookActivity.this, CallPhoneBookActivity.class);
+                //nhận
                 String username = tvNamePhoneNumber.getText().toString().trim();
                 String phonenum = tvNumberPhone.getText().toString();
-                intent.putExtra("username",username);
-                intent.putExtra("PhoneNumber",phonenum);
+                intent.putExtra("username", username);
+                intent.putExtra("PhoneNumber", phonenum);
                 startActivity(intent);
             }
         });
@@ -79,6 +97,11 @@ public class DetailsPhoneBookActivity extends AppCompatActivity {
 
     public void goEditNumberPhone(View view) {
         Intent intent = new Intent(DetailsPhoneBookActivity.this, AddNumberPhoneActivity.class);
+        //Nhận dữ liệu
+        String username = tvNamePhoneNumber.getText().toString().trim();
+        String phonenum = tvNumberPhone.getText().toString();
+        intent.putExtra("username", username);
+        intent.putExtra("PhoneNumber", phonenum);
         startActivity(intent);
     }
 
@@ -90,10 +113,11 @@ public class DetailsPhoneBookActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.mn_deletedetailpb:
-                        Toast.makeText(view.getContext(), "xóa danh bạ", Toast.LENGTH_SHORT).show();
+                        openDialogDeleteGarbage();
                         break;
                     case R.id.mn_qr:
-                        Toast.makeText(view.getContext(), "mã QR", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(DetailsPhoneBookActivity.this, QrPhoneBookActivity.class);
+                        startActivity(intent);
                         break;
                     case R.id.mn_blockpb:
                         Toast.makeText(view.getContext(), "chặn danh bạ", Toast.LENGTH_SHORT).show();
@@ -106,14 +130,36 @@ public class DetailsPhoneBookActivity extends AppCompatActivity {
     }
 
     public void goDiary(View view) {
-        Intent intent = new Intent(DetailsPhoneBookActivity.this,DiaryPhoneBookActivity.class);
+        Intent intent = new Intent(DetailsPhoneBookActivity.this, DiaryPhoneBookActivity.class);
         startActivity(intent);
     }
 
     public void goPositionCache(View view) {
-        Intent intent = new Intent(DetailsPhoneBookActivity.this,PossitionCacheActivity.class);
+        Intent intent = new Intent(DetailsPhoneBookActivity.this, PossitionCacheActivity.class);
         startActivity(intent);
     }
 
+    //dialog delete numberphone
+    public void openDialogDeleteGarbage() {
+        Button btnExit, btnDeletePhone;
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_delete_phonenumber);
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
+        //chạm bên ngoài sẽ đóng dialog
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        btnExit = dialog.findViewById(R.id.btnExit);
+        btnExit.setOnClickListener(view -> {
+            //đóng dialog
+            dialog.dismiss();
+        });
+
+        //khi click vào xóa
+        btnDeletePhone = dialog.findViewById(R.id.btnDeleteGarbage);
+        btnDeletePhone.setOnClickListener(view -> {
+            onBackPressed();
+        });
+        dialog.show();
+    }
 
 }

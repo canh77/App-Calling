@@ -67,7 +67,7 @@ public class RecentlyAdapter extends RecyclerView.Adapter<RecentlyAdapter.Recent
         //nếu có dữ liệu
         holder.tvName_recently.setText(recently.getName());
         holder.tvTime.setText(recently.getTime());
-        holder.tvPhoneNumber_recently.setText("Số điện thoại: " + recently.getPhones());
+        holder.tvPhoneNumber_recently.setText("" + recently.getPhones());
         //set trạng thái điện thoại
         holder.tvCallaway_recently.setText(recently.getSTT(recently.getStatus()));
 
@@ -75,15 +75,12 @@ public class RecentlyAdapter extends RecyclerView.Adapter<RecentlyAdapter.Recent
         if (recently.getStatus() == 0){
             holder.tvCallaway_recently.setTextColor(Color.BLUE);
             holder.img_id_recently.setImageResource(R.drawable.ic_homephone);
-//            holder.img_id_recently.setBackgroundColor(Color.BLUE);
         }else if (recently.getStatus() == 1){
             holder.tvCallaway_recently.setTextColor(Color.GRAY);
             holder.img_id_recently.setImageResource(R.drawable.ic_phonego);
-//            holder.img_id_recently.setBackgroundColor(Color.GRAY);
         }else if (recently.getStatus() == 2){
             holder.tvCallaway_recently.setTextColor(Color.RED);
             holder.img_id_recently.setImageResource(R.drawable.ic_missedphone);
-//            holder.img_id_recently.setBackgroundColor(Color.RED);
         }
         //hiển thị chi tiết khi click vào item
         holder.lntop_recently.setOnClickListener(view -> {
@@ -127,6 +124,9 @@ public class RecentlyAdapter extends RecyclerView.Adapter<RecentlyAdapter.Recent
             imggooglemeet_recently = itemView.findViewById(R.id.imggooglemeet_recently);
             imgwarning_recently = itemView.findViewById(R.id.imgwarning_recently);
             imgphone_recently = itemView.findViewById(R.id.imgphone_recently);
+            lnbottom_recentl.setOnClickListener(view -> {
+                lndetails_recently.setVisibility(View.GONE);
+            });
 
             imgphone_recently.setOnClickListener(view -> {
                 Intent intent = new Intent(context, CallPhoneBookActivity.class);

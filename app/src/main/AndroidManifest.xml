@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginDemo">
         <activity
+            android:name=".QrPhoneBookActivity"
+            android:exported="false" />
+        <activity
             android:name=".PossitionCacheActivity"
             android:exported="false" />
         <activity
@@ -75,14 +78,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        //BroadcastReceiver
-<!--        <receiver android:name="android.content.BroadcastReceiver"-->
-<!--            android:exported="false">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.AIRPLANE_MODE"/>-->
-<!--            </intent-filter>-->
-<!--        </receiver>-->
     </application>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
 </manifest>

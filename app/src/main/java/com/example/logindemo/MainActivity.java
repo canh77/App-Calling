@@ -23,6 +23,9 @@ import com.example.logindemo.model.PhoneBook;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import java.util.ArrayList;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
     private ViewPageAdapter mAdapter;
     private TabLayout mTabLayout;
@@ -32,6 +35,25 @@ public class MainActivity extends AppCompatActivity {
     private  boolean check;
     //Image
     ImageView img_add, img_search;
+
+//    phoneBookArrayList.clear();
+//    //nhập dữ liệu từ edit text
+//    String content = edtSearch.getText().toString();
+//    //tạo hàm for each để duyệt các ptu của mảng
+//                for (PhoneBook phoneBook : mPhoneBooks) {
+//        //so sánh ptu
+//        if (phoneBook.getName().toLowerCase(Locale.ROOT).contains(content)) {
+//            //thêm vào list tạm thời
+//            phoneBookArrayList.add(phoneBook);
+//        }
+//    }
+//    //cập nhật lại list
+//                adapter.notifyDataSetChanged();
+
+    //biến cố định
+//    mPhoneBooks = new ArrayList<>();
+//    //add tất cả các ptu
+//        mPhoneBooks.addAll(phoneBookArrayList);
 
     //khai báo các tab bên trong string
     private int[] mTabTitles = new int[]{R.string.tab_danhba_title, R.string.tab_ganday_title, R.string.tab_banphim_title};
@@ -49,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
 
         img_add = findViewById(R.id.img_add);
         img_search = findViewById(R.id.img_search);
-
 
         mAdapter = new ViewPageAdapter(this);
         mTabLayout = findViewById(R.id.tabLayout);
@@ -78,10 +99,9 @@ public class MainActivity extends AppCompatActivity {
             //lấy dữ liệu
             final String name = data.getStringExtra("name");
             final String  phone = data.getStringExtra("phone");
-            Toast.makeText(this, "Add successful: " + phone , Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Add successful: " + phone , Toast.LENGTH_SHORT).show();
             //Tạo đối tượng để lấy rồi add vào
             PhoneBook phoneBook = new PhoneBook("0",name,phone);
-            //
             displayNumber.display(phoneBook);
         } else {
             Toast.makeText(this, "Không có data trả về", Toast.LENGTH_SHORT).show();

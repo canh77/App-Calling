@@ -7,105 +7,47 @@
     android:background="#F6F6F6"
     android:orientation="vertical"
     tools:context=".AddNumberPhoneActivity">
-    <LinearLayout
+
+    <include
+        android:id="@+id/lnTitle"
+        layout="@layout/item_toolbar_addphone"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_marginLeft="5dp"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tvTilte"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="5"
-            android:gravity="left|center"
-            android:text="Sim 1"
-            android:textColor="#000000"
-            android:textSize="30dp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/boder"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="178dp"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="10"
-            android:src="@drawable/ic_user" />
-
-        <EditText
-            android:id="@+id/edNamepb"
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:hint="Tên" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-       android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:background="@drawable/boder"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="10"
-            android:layout_margin="5dp"
-            android:src="@drawable/ic_phoneadd"/>
-
-        <EditText
-            android:id="@+id/edPhonepb"
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:phoneNumber="true"
-            android:hint="Điện thoại" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_marginTop="150dp"
-        android:layout_height="wrap_content">
         <Button
-            android:layout_width="wrap_content"
             android:id="@+id/btnCancel"
+            style="@style/Widget.AppCompat.ButtonBar.AlertDialog"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="Thoát"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:foreground="?attr/selectableItemBackground"
+            android:fontFamily="@font/roboto_bold"
             android:onClick="cancel"
-            android:fontFamily="@font/roboto_bold"
-            android:layout_margin="5dp"
-            android:textSize="20dp"
+            android:text="Thoát"
             android:textColor="@color/black"
-            style="@style/Widget.AppCompat.ButtonBar.AlertDialog"
-            />
+            android:textSize="20dp" />
+
         <Button
-            android:layout_width="wrap_content"
             android:id="@+id/btnSave"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Lưu"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:fontFamily="@font/roboto_bold"
-            android:layout_margin="5dp"
-            android:textSize="20dp"
-            android:textColor="@color/black"
             style="@style/Widget.AppCompat.ButtonBar.AlertDialog"
-            />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:foreground="?attr/selectableItemBackground"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Lưu"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
     </LinearLayout>
 </LinearLayout>

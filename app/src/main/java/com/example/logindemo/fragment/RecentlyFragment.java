@@ -97,6 +97,8 @@ public class RecentlyFragment extends Fragment {
         img_search = view.findViewById(R.id.img_search);
         img_otherrecently = view.findViewById(R.id.img_otherrecently);
         img_filltercall = view.findViewById(R.id.img_filltercall);
+
+
         img_filltercall.setOnClickListener(view1 -> {
             openDialogFillterCall(getContext());
         });

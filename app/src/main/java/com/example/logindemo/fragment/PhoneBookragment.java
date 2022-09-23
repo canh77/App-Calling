@@ -38,6 +38,7 @@ import com.example.logindemo.adapter.PhoneBookAdapter;
 import com.example.logindemo.model.PhoneBook;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class PhoneBookragment extends Fragment implements PhoneBookAdapter.UpdateNumber, MainActivity.Test, MainActivity.DisplayNumber {
     RecyclerView rvphonebook;
@@ -45,8 +46,10 @@ public class PhoneBookragment extends Fragment implements PhoneBookAdapter.Updat
     Intent intent;
     PhoneBookAdapter phoneBookAdapter;
     TextView tvName, tvPhoneNumber;
+
     //khai báo biến toàn cục
     private ArrayList<PhoneBook> phoneBooks;
+    private PhoneBookAdapter adapter;
 
     public PhoneBookragment() {
 
@@ -79,6 +82,7 @@ public class PhoneBookragment extends Fragment implements PhoneBookAdapter.Updat
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_danhba, container, false);
+
     }
 
     @Override
@@ -108,6 +112,18 @@ public class PhoneBookragment extends Fragment implements PhoneBookAdapter.Updat
         phoneBooks.add(new PhoneBook("9", "Văn Nam", "0984567891"));
         phoneBooks.add(new PhoneBook("10", "Huy Hoàng", "04567666"));
 
+        //cập nhật lại list c1 set vị trí mới
+//        phoneBooks.set(2, new PhoneBook("2", "Hồ An2", " 0123478596"));
+//        adapter.notifyDataSetChanged();
+
+
+        //c2 set lại vị trí mới bằng tất cả các thuộc tính
+//        phoneBooks.get(2).setId("23");
+//        phoneBooks.get(2).setName("23");
+//        phoneBooks.get(2).setPhone("23");
+
+        adapter = new PhoneBookAdapter(phoneBooks,this.getContext());
+
         //mapping trong fragment
         rvphonebook = view.findViewById(R.id.rvphonebook);
         img_search = view.findViewById(R.id.img_search);
@@ -115,11 +131,6 @@ public class PhoneBookragment extends Fragment implements PhoneBookAdapter.Updat
         tvPhoneNumber = view.findViewById(R.id.tvPhoneNumber);
         tvName = view.findViewById(R.id.tvName);
 
-
-        //cập nhật vào vị trí đầu tiên
-//        phoneBooks.add(0, new PhoneBook("0", "name", "123"));
-        //cập nhật lại reclycle view
-//       phoneBookAdapter.notifyDataSetChanged();
 
         img_otherpb.setOnClickListener(new View.OnClickListener() {
             @Override

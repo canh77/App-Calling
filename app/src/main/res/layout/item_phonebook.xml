@@ -21,8 +21,8 @@
             android:id="@+id/img_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:layout_gravity="center"
+            android:layout_margin="5dp"
             android:background="@drawable/circleboder"
             android:padding="10dp"
             android:src="@drawable/ic_aphone" />
@@ -40,7 +40,6 @@
 
     </LinearLayout>
 
-
     <LinearLayout
         android:id="@+id/details"
         android:layout_width="match_parent"
@@ -52,7 +51,7 @@
             android:id="@+id/detail1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
+            android:layout_marginLeft="60dp"
             android:layout_marginRight="80dp"
             android:orientation="vertical">
 
@@ -61,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="Số điện thoại"
+                android:text="Điện thoại"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -76,12 +75,12 @@
 
             <ImageView
                 android:id="@+id/imgphonebook"
-                android:padding="8dp"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
-                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:background="@drawable/bodercall"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:padding="8dp"
                 android:src="@drawable/ic_call" />
 
             <ImageView
@@ -89,9 +88,9 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
-                android:foreground="?attr/selectableItemBackgroundBorderless"
-                 android:padding="12dp"
                 android:background="@drawable/bodersms"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:padding="12dp"
                 android:src="@drawable/ic_smsmsg" />
 
             <ImageView
@@ -99,9 +98,9 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
-                android:padding="5dp"
                 android:background="@drawable/boderggmet"
                 android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:padding="5dp"
                 android:src="@drawable/ic_googlemeet" />
 
             <ImageView
@@ -113,6 +112,16 @@
                 android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:padding="10dp"
                 android:src="@drawable/ic_warning" />
+
+            <ImageView
+                android:id="@+id/imgdeleteNumber"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/circleboder"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:padding="10dp"
+                android:src="@drawable/ic_delete" />
         </LinearLayout>
     </LinearLayout>
 

@@ -19,5 +19,6 @@ public class DiaryPhoneBookActivity extends AppCompatActivity {
     public void backdetails(View view) {
         Intent intent = new Intent(DiaryPhoneBookActivity.this,DetailsPhoneBookActivity.class);
         startActivity(intent);
+        finish();
     }
 }

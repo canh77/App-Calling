@@ -18,6 +18,7 @@ import android.widget.Toast;
 public class HelpGgMeetActivity extends AppCompatActivity {
 
     ImageView imghelpggmeet;
+    LinearLayout lnContent1,lnContent2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +26,18 @@ public class HelpGgMeetActivity extends AppCompatActivity {
         setContentView(R.layout.activity_help_gg_meet);
 
         imghelpggmeet = findViewById(R.id.imghelpggmeet);
+        lnContent1 = findViewById(R.id.lnContent1);
+        lnContent2 = findViewById(R.id.lnContent2);
 
+            lnContent1.setOnClickListener(view -> {
+                lnContent2.setVisibility(View.VISIBLE);
+            });
     }
 
     public void cancelggmeet(View view) {
         Intent intent = new Intent(HelpGgMeetActivity.this, GoogleMeetActivity.class);
         startActivity(intent);
+        finish();
     }
 
 

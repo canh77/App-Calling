@@ -40,23 +40,16 @@ public class CallPhoneBookActivity extends AppCompatActivity {
         //nhận dữ liệu
         String phone = getIntent().getStringExtra("PhoneNumber");
         tvNumberphones.setText(phone);
-
         String username = getIntent().getStringExtra("username");
         tvNameUser.setText(username);
-
-
-//        String phonenum = getIntent().getStringExtra("phonenum");
-//        tvNumberphones.setText(phonenum);
-//        Boolean isPhoneNumber = Patterns.PHONE.matcher(username).matches();
-//        Boolean isPhoneNumber = Patterns.PHONE.matcher(phonenum).matches();
 
         boolean isPhoneNumber = Patterns.PHONE.matcher(phone).matches();
         Log.d("///","isPhoneNumber"+isPhoneNumber);
         Log.d("///","phone"+phone);
         if (!isPhoneNumber){
-            Toast.makeText(this, "số điện thoại ko hợp lệ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Bật chuyển tiếp cuộc gọi có điều kiện", Toast.LENGTH_SHORT).show();
         }else {
-            Toast.makeText(this, "số điện thoại hợp lệ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Bật chuyển tiếp cuộc gọi có điều kiện", Toast.LENGTH_SHORT).show();
         }
 
         if (!isPhoneNumber) {
@@ -81,8 +74,7 @@ public class CallPhoneBookActivity extends AppCompatActivity {
                 }
             },4000);
         }
-//        tvNameUser.setText("Me");
-//        tvNumberphones.setText("0235488875");
+
     }
 
     public void cancelCall(View view) {

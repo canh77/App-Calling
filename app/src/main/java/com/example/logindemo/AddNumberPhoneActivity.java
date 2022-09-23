@@ -30,6 +30,13 @@ public class AddNumberPhoneActivity extends AppCompatActivity {
         btnCancel = findViewById(R.id.btnCancel);
         btnSave = findViewById(R.id.btnSave);
 
+        //Nhận dữ liệu từ details
+        String phone = getIntent().getStringExtra("username");
+        edNamepb.setText(phone);
+        String username = getIntent().getStringExtra("PhoneNumber");
+        edPhonepb.setText(username);
+
+
         //truyền dữ liệu
         btnSave.setOnClickListener(view -> {
             String userName = edNamepb.getText().toString().trim();
@@ -53,7 +60,7 @@ public class AddNumberPhoneActivity extends AppCompatActivity {
 
     public void cancel(View view) {
         Intent intent = new Intent(AddNumberPhoneActivity.this, MainActivity.class);
-        startActivity(intent);
+        onBackPressed();
         finish();
     }
 

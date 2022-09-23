@@ -4,8 +4,11 @@ package com.example.logindemo.fragment;
 import static android.content.Context.INPUT_METHOD_SERVICE;
 import static androidx.core.content.ContextCompat.getSystemService;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -31,6 +34,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.PackageManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,6 +45,7 @@ import com.example.logindemo.CallPhoneBookActivity;
 import com.example.logindemo.ContactUsActivity;
 import com.example.logindemo.FindPhoneBookActivity;
 import com.example.logindemo.GoogleMeetActivity;
+import com.example.logindemo.MainActivity;
 import com.example.logindemo.R;
 import com.example.logindemo.SettingPhoneActivity;
 import com.example.logindemo.SpeedDialActivity;
@@ -57,6 +64,7 @@ public class KeyBoardFragment extends Fragment implements NumberAdapter.NumberLi
     ImageView imgCallkb, img_otherkeyboard, img_search, img_googlekeyboard, img_deletekeyboard;
     Intent intent;
 
+    private static final int REQUEST_CALL = 1;
     private EditText edNumberInput;
     String phoneNumbers = "";
 
@@ -128,18 +136,22 @@ public class KeyBoardFragment extends Fragment implements NumberAdapter.NumberLi
         imgCallkb = view.findViewById(R.id.img_callkb);
 
         imgCallkb.setOnClickListener(view1 -> {
-            //điều kiện nếu ko nhập
-            if (phoneNumbers.equals("")) {
-                Toast.makeText(getContext(), "Bạn phải nhập vào số điện thoại", Toast.LENGTH_SHORT).show();
-            } else {
-//               String edNumberInput = " ";
-                Intent intent = new Intent(view.getContext(), CallPhoneBookActivity.class);
-                intent.putExtra("PhoneNumber", phoneNumbers);
-                phoneNumbers = "";
-                edNumberInput.getText().clear();
-                startActivity(intent);
-            }
+            makePhoneCall();
         });
+
+//        imgCallkb.setOnClickListener(view1 -> {
+//            //điều kiện nếu ko nhập
+//            if (phoneNumbers.equals("")) {
+//                Toast.makeText(getContext(), "Bạn phải nhập vào số điện thoại", Toast.LENGTH_SHORT).show();
+//            } else {
+////               String edNumberInput = " ";
+//                Intent intent = new Intent(view.getContext(), CallPhoneBookActivity.class);
+//                intent.putExtra("PhoneNumber", phoneNumbers);
+//                phoneNumbers = "";
+//                edNumberInput.getText().clear();
+//                startActivity(intent);
+//            }
+//        });
 
         img_deletekeyboard = view.findViewById(R.id.img_deletekeyboard);
         img_googlekeyboard = view.findViewById(R.id.img_googlekeyboard);
@@ -230,20 +242,49 @@ public class KeyBoardFragment extends Fragment implements NumberAdapter.NumberLi
         rvKeyboard.setAdapter(numberAdapter);
     }
 
-//    private boolean isValidMobile(String phoneNumbers) {
-//        boolean check = false;
-//        if (!Pattern.matches("^[0-9]$", phoneNumbers)) {
-//            if (phoneNumbers.length() < 10 || phoneNumbers.length() > 10) {
-//                check = false;
-//                Toast.makeText(getContext(), "Số điện thoại không hợp lệ", Toast.LENGTH_SHORT).show();
-//            } else {
-//                Toast.makeText(getContext(), "Số điện thoại lệ", Toast.LENGTH_SHORT).show();
-//            }
-//        } else {
-//            check = false;
-//        }
-//        return check;
-//    }
+    //gọi điện thoại
+    private void makePhoneCall() {
+        String number = edNumberInput.getText().toString();
+        if (number.trim().length() > 0) {
+
+            if (ContextCompat.checkSelfPermission(this.getContext(),
+                    Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this.getActivity(),
+                        new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL);
+            } else {
+                String dial = "tel:" + number;
+                startActivity(new Intent(Intent.ACTION_CALL, Uri.parse(dial)));
+            }
+        } else {
+            Toast.makeText(this.getContext(), "Hãy nhập số điện thoại", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //override cho phương thuỨC cấp quyền
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == REQUEST_CALL){
+            if (grantResults.length>0 && grantResults[0] ==PackageManager.PERMISSION_GRANTED);
+            makePhoneCall();
+        }else {
+            Toast.makeText(this.getContext(), "Permisson DENIED", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+        private boolean isValidMobile(String phoneNumbers) {
+        boolean check = false;
+        if (!Pattern.matches("^[0-9]$", phoneNumbers)) {
+            if (phoneNumbers.length() < 10 || phoneNumbers.length() > 10) {
+                check = false;
+                Toast.makeText(getContext(), "Số điện thoại không hợp lệ", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getContext(), "Số điện thoại lệ", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            check = false;
+        }
+        return check;
+    }
 
     @Override
     public void update(String number) {
@@ -252,11 +293,6 @@ public class KeyBoardFragment extends Fragment implements NumberAdapter.NumberLi
     @Override
     public void toast(String numbers) {
         //   gitt
-
-
-
-
-
         Toast.makeText(getActivity(), numbers, Toast.LENGTH_SHORT).show();
     }
 

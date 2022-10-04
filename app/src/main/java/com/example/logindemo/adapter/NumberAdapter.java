@@ -2,9 +2,6 @@ package com.example.logindemo.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.logindemo.R;
 import com.example.logindemo.model.Number;
-import com.google.android.material.internal.TextWatcherAdapter;
 
 import java.util.List;
 
@@ -33,7 +29,7 @@ public class NumberAdapter extends RecyclerView.Adapter<NumberAdapter.NumberVH> 
     //    TextView tvNumber;
     ImageView img_deletekeyboard, img_googlekeyboard;
 
-    public NumberAdapter(List<Number> numbers, Context context, NumberListener numberListener, ToastNumber toastNumber, ShowNumber showNumber) {
+    public NumberAdapter(List<Number> numbers, Context context, NumberAdapter.NumberListener numberListener, NumberAdapter.ToastNumber toastNumber, NumberAdapter.ShowNumber showNumber) {
         this.numbers = numbers;
         this.context = context;
         this.numberListener = numberListener;
@@ -44,7 +40,6 @@ public class NumberAdapter extends RecyclerView.Adapter<NumberAdapter.NumberVH> 
     @NonNull
     @Override
     public NumberAdapter.NumberVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_number, parent, false);
         return new NumberAdapter.NumberVH(view);
@@ -57,6 +52,7 @@ public class NumberAdapter extends RecyclerView.Adapter<NumberAdapter.NumberVH> 
         //cập nhật item với position chạy từ 0
 //        if (number == null)
 //            return;
+
         //nếu có dữ liệu
         holder.tvNumber.setText(number.getTitle());
         holder.tvTextNumber.setText(number.getContent());
@@ -67,7 +63,6 @@ public class NumberAdapter extends RecyclerView.Adapter<NumberAdapter.NumberVH> 
             public void onClick(View view) {
 //              toastNumber.toast(number.getTitle());
                 showNumber.show(number.getTitle());
-
             }
         });
     }

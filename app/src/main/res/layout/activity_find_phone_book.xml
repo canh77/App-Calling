@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="0dp"
             android:layout_weight="0"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_backmsg" />
@@ -54,7 +54,7 @@
 
             <ImageView
                 android:id="@+id/imgmicpb"
-                android:layout_width="25dp"
+                android:layout_width="wrap_content"
                 android:layout_height="25dp"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"

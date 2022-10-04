@@ -3,33 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-<!--    <LinearLayout-->
-<!--        android:id="@+id/lnnewstatus"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="vertical">-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/tvnewStatusmsg"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center"-->
-<!--            android:text="Ngày hôm qua 11:41"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:textSize="18sp" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/tvnewUsermsg"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:background="#EFF4F8"-->
-<!--            android:gravity="center"-->
-<!--            android:text="Đang nhắn tin với It me(SMS/MMS)"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:textSize="18sp" />-->
-<!--    </LinearLayout>-->
-
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

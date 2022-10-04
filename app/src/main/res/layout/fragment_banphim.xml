@@ -29,7 +29,7 @@
         android:phoneNumber="true"
         android:textColor="@color/black"
         android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/rvKeyboard"
+        app:layout_constraintBottom_toTopOf="@+id/rvKeyboard1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,10 +37,12 @@
         app:layout_constraintVertical_bias="0.423" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvKeyboard"
+        android:id="@+id/rvKeyboard1"
         android:layout_width="361dp"
         android:layout_height="361dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toTopOf="@+id/img_callkb"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

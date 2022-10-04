@@ -47,8 +47,8 @@
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
         android:textStyle="bold"
-        android:layout_marginTop="18sp"
         android:textColor="@color/black"
+        android:textSize="18sp"
         android:text="Tất cả cuộc gọi" />
     <CheckBox
         android:layout_width="match_parent"

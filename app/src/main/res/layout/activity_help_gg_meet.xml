@@ -76,7 +76,6 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tvTitile1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -129,17 +128,118 @@
                 />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/lnContent5"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="      Bắt đầu với Google Dou"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/lnContent3"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:visibility="gone"
+                android:background="@drawable/bodercontentgg"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:text="Tìm hiểu những thay đổi đối với Google Dou"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:text="Sử dụng tính năng của Googmeet trong ứng dụng Google Dou"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:text="Tìm hiểu về phương thức mã hóa cuộc gọi và cuộc họp trong Google Dou"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:text="Tìm hiểu về các thay đổi đối với biểu tượng ứng dụng Google Dou và Google Meet"
+                    />
+            </LinearLayout>
+
 
     </LinearLayout>
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/lnContent4"
         android:layout_marginTop="10dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="      Bắt đầu với Google Dou"
-        android:textColor="@color/black"
-        android:textSize="18sp" />
+        android:layout_marginLeft="30dp"
+        android:visibility="gone"
+        android:background="@drawable/bodercontentgg"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:text="Tìm hiểu những thay đổi đối với Google Dou"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:text="Sử dụng tính năng của Googmeet trong ứng dụng Google Dou"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:text="Tìm hiểu về phương thức mã hóa cuộc gọi và cuộc họp trong Google Dou"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:text="Tìm hiểu về các thay đổi đối với biểu tượng ứng dụng Google Dou và Google Meet"
+            />
+    </LinearLayout>
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -179,4 +279,5 @@
 
 
 
+</LinearLayout>
 </LinearLayout>

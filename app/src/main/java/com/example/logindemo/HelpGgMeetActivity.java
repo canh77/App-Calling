@@ -18,7 +18,7 @@ import android.widget.Toast;
 public class HelpGgMeetActivity extends AppCompatActivity {
 
     ImageView imghelpggmeet;
-    LinearLayout lnContent1,lnContent2;
+    LinearLayout lnContent1, lnContent2, lnContent3, lnContent5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +28,22 @@ public class HelpGgMeetActivity extends AppCompatActivity {
         imghelpggmeet = findViewById(R.id.imghelpggmeet);
         lnContent1 = findViewById(R.id.lnContent1);
         lnContent2 = findViewById(R.id.lnContent2);
+        lnContent5 = findViewById(R.id.lnContent5);
+        lnContent3 = findViewById(R.id.lnContent3);
 
-            lnContent1.setOnClickListener(view -> {
-                lnContent2.setVisibility(View.VISIBLE);
-            });
+        lnContent1.setOnClickListener(view -> {
+            lnContent2.setVisibility(View.VISIBLE);
+        });
+        lnContent2.setOnClickListener(view -> {
+            lnContent2.setVisibility(View.GONE);
+        });
+
+        lnContent5.setOnClickListener(view -> {
+            lnContent3.setVisibility(View.VISIBLE);
+        });
+        lnContent3.setOnClickListener(view -> {
+            lnContent3.setVisibility(View.GONE);
+        });
     }
 
     public void cancelggmeet(View view) {
@@ -49,13 +61,10 @@ public class HelpGgMeetActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.mn_postshare:
-                        Toast.makeText(view.getContext(), "Đây là chia sẻ", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.mn_feedback:
-                        Toast.makeText(view.getContext(), "Đây là phản hồi", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.mn_viewggplay:
-                        Toast.makeText(view.getContext(), "Xem cửa hàng CHPlay", Toast.LENGTH_SHORT).show();
                         break;
                 }
                 return false;

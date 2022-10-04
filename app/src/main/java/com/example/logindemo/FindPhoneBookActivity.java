@@ -4,14 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
+import android.speech.tts.TextToSpeech;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -33,6 +39,11 @@ public class FindPhoneBookActivity extends AppCompatActivity {
     RecyclerView rvListfindpb;
     ListView lvList;
     EditText edtSearch;
+    Button btnTroLai;
+
+    //giọng nói
+    String userToSpeak;
+    TextToSpeech t1;
 
     //Tìm kiếm dữ liệu
     private PhoneBookAdapter adapter;
@@ -51,6 +62,28 @@ public class FindPhoneBookActivity extends AppCompatActivity {
         imgdeletepb = findViewById(R.id.imgdeletepb);
         imgbackpb = findViewById(R.id.imgbackpb);
         rvListfindpb = findViewById(R.id.rvListfindpb);
+
+        t1 = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status != TextToSpeech.ERROR) {
+                    t1.setLanguage(Locale.UK);
+                }
+            }
+        });
+
+        imgmicpb.setOnClickListener(view -> {
+//            openDialogMic(this);
+            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+            intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Hãy nói điều gì đó");
+            try {
+                startActivityForResult(intent, 101);
+            } catch (Exception e) {
+                Toast.makeText(this, "Sorry !! you device does not support speech input", Toast.LENGTH_SHORT).show();
+            }
+        });
         buildRecyclerView();
         edtSearch = findViewById(R.id.edtSearch);
         edtSearch.addTextChangedListener(new TextWatcher() {
@@ -76,13 +109,13 @@ public class FindPhoneBookActivity extends AppCompatActivity {
                 String content = edtSearch.getText().toString().trim();
 
                 //tạo vòng lặp for each để kiểm tra
-                for (PhoneBook phoneBook : mPhoneBooks){
+                for (PhoneBook phoneBook : mPhoneBooks) {
                     //so sánh các phần tử với content trong list tạm thời
-                    if (phoneBook.getName().toLowerCase(Locale.ROOT).contains(content)){
+                    if (phoneBook.getName().toLowerCase(Locale.ROOT).contains(content)) {
                         phoneBookArrayList.add(phoneBook);
                     }
                 }
-               adapter.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -125,10 +158,43 @@ public class FindPhoneBookActivity extends AppCompatActivity {
         //add tất cả các dữ liệu vào biến cố định sau khi tìm
         mPhoneBooks.addAll(phoneBookArrayList);
 
-        adapter = new PhoneBookAdapter(phoneBookArrayList, FindPhoneBookActivity.this);
+        adapter = new PhoneBookAdapter(phoneBookArrayList, FindPhoneBookActivity.this, size -> {
+        });
         LinearLayoutManager manager = new LinearLayoutManager(this);
         rvListfindpb.setHasFixedSize(true);
         rvListfindpb.setLayoutManager(manager);
         rvListfindpb.setAdapter(adapter);
+    }
+
+    //dialog mic speak
+    protected void openDialogMic(final Context context) {
+        Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.dialog_mickb);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+        btnTroLai = dialog.findViewById(R.id.btnTroLai);
+        btnTroLai.setOnClickListener(view -> {
+            dialog.dismiss();
+        });
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+                if (resultCode == RESULT_OK && null != data) {
+                    ArrayList<String> res = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    edtSearch.setText(res.get(0));
+                    t1.speak(res.get(0), TextToSpeech.QUEUE_FLUSH, null);
+                }
+        }
+
+
+    @Override
+    public void onDestroy() {
+        if (t1 != null) {
+            t1.stop();
+            t1.shutdown();
+        }
+        super.onDestroy();
     }
 }

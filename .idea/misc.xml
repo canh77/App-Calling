@@ -69,20 +69,25 @@
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/drawable/ic_warning.xml" value="0.1655" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/drawable/test.xml" value="0.1" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/a.xml" value="0.25" />
-        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_add_number_phone.xml" value="0.2" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_add_number_phone.xml" value="0.1" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_board_call.xml" value="0.24351851851851852" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_bottom_sheet_example.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_call_phone_book.xml" value="0.24351851851851852" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_call_setting.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_call_settings.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_contact_us.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_details_msg.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_details_phone_book.xml" value="0.2" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_diary_phone_book.xml" value="0.264" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_find_message.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_find_phone_book.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_garbage_can_pbook.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_google_meet.xml" value="0.264" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_help_gg_meet.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_load_image.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_manager_phone_book.xml" value="0.25" />
-        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_messenger.xml" value="0.24351851851851852" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_messenger.xml" value="0.2078853046594982" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_possition_cache.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_qr_phone_book.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/activity_selected_national_phone.xml" value="0.25" />
@@ -96,19 +101,27 @@
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/add_phone_dialog.xml" value="0.264" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/dialog_delete_phonenumber.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/dialog_filtercall.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/dialog_mickb.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/dialog_selectd_numberphone.xml" value="0.1902497027348395" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/dialog_voicemail.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/dialogcalender.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/fragment_banphim.xml" value="0.24351851851851852" />
-        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/fragment_danhba.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/fragment_danhba.xml" value="0.1" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/fragment_ganday.xml" value="0.16" />
-        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/item_message.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/item_icon.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/item_message.xml" value="0.21481481481481482" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/item_message1.xml" value="0.1" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/item_msg.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/item_msgadd.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/item_number.xml" value="0.2" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/item_number1.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/item_phonebook.xml" value="0.264" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/item_recently.xml" value="0.2" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/item_toolbar.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/item_toolbar_addphone.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/item_toolbar_keyboard.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/item_toolbar_recently.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/itemtexting.xml" value="0.1" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/layout/phonebook_detail_dialog.xml" value="0.264" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/menu/menu_addphone.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/LoginDemo/app/src/main/res/menu/menu_keyboard.xml" value="0.25" />

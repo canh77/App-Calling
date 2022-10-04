@@ -90,23 +90,18 @@ public class SpeedDialActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.dialog_voicemail);
         dialog.setCanceledOnTouchOutside(false);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        {
-            btnAddNumber = dialog.findViewById(R.id.btnAddNumber);
-            btnAddNumber.setOnClickListener(view -> {
-                Intent intent = new Intent(getApplicationContext(), VoiceMailActivity.class);
-                startActivity(intent);
-                finish();
-            });
-            btnExit = dialog.findViewById(R.id.btnExit);
-            btnExit.setOnClickListener(view -> {
-                dialog.dismiss();
-            });
+        btnAddNumber = dialog.findViewById(R.id.btnAddNumber);
+        btnAddNumber.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), VoiceMailActivity.class);
+            startActivity(intent);
+            finish();
+        });
+        btnExit = dialog.findViewById(R.id.btnExit);
+        btnExit.setOnClickListener(view -> {
+            dialog.dismiss();
+        });
 
-        }
+        dialog.show();
 
-        {
-
-            dialog.show();
-        }
-
-    }}
+    }
+}

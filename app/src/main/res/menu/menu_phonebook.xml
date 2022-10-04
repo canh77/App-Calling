@@ -3,9 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/mn_deletepbook"
-        android:title="Xoá danh bạ" />
-    <item
         android:id="@+id/mn_sharepbook"
         android:title="Chia sẻ danh bạ" />
     <item

@@ -71,7 +71,6 @@ public class RecentlyAdapter extends RecyclerView.Adapter<RecentlyAdapter.Recent
         //set trạng thái điện thoại
         holder.tvCallaway_recently.setText(recently.getSTT(recently.getStatus()));
 
-
         if (recently.getStatus() == 0){
             holder.tvCallaway_recently.setTextColor(Color.BLUE);
             holder.img_id_recently.setImageResource(R.drawable.ic_homephone);
@@ -141,6 +140,9 @@ public class RecentlyAdapter extends RecyclerView.Adapter<RecentlyAdapter.Recent
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, MessengerActivity.class);
+                    //truyền dữ liệu qua recently
+                    String username = tvName_recently.getText().toString().trim();
+                    intent.putExtra("username",username);
                     context.startActivity(intent);
                 }
             });

@@ -40,24 +40,29 @@ public class PhoneBookAdapter extends RecyclerView.Adapter<PhoneBookAdapter.Phon
     String strId, strName, strPhone;
 
     private int mCurrentSelected = -1;
-    private boolean check=true;
+    private boolean check = true;
     //tạo biến toàn cục UpdateNumber
     private UpdateNumber updateNumber;
+    //size
+    private DisplaySize displaySize;
 
     //xóa
     private PhoneBookAdapter phoneBookAdapter;
     private ArrayList<PhoneBook> phoneBookArrayList;
 
-    public PhoneBookAdapter(List<PhoneBook> phoneBooks, Context context, UpdateNumber updateNumber) {
+    public PhoneBookAdapter(List<PhoneBook> phoneBooks, Context context, UpdateNumber updateNumber, DisplaySize displaySize) {
         this.phoneBooks = phoneBooks;
         this.context = context;
         this.updateNumber = updateNumber;
+        //size
+        this.displaySize = displaySize;
     }
 
-    public PhoneBookAdapter(ArrayList<PhoneBook> phoneBooks, Context context) {
+    public PhoneBookAdapter(ArrayList<PhoneBook> phoneBooks, Context context, DisplaySize displaySize) {
         //tìm kiếm
         this.phoneBooks = phoneBooks;
         this.context = context;
+        this.displaySize = displaySize;
     }
 
     //Tìm kiếm dữ liệu cập nhật lại adapter
@@ -76,6 +81,7 @@ public class PhoneBookAdapter extends RecyclerView.Adapter<PhoneBookAdapter.Phon
 
     @Override
     public void onBindViewHolder(@NonNull PhoneBookAdapter.PhoneBookVH holder, @SuppressLint("RecyclerView") int position) {
+
         //cập nhật item với positon
         PhoneBook phoneBook = phoneBooks.get(position);
 
@@ -97,6 +103,22 @@ public class PhoneBookAdapter extends RecyclerView.Adapter<PhoneBookAdapter.Phon
         holder.tvName.setText(phoneBook.getName());
         holder.tvPhoneNumber.setText("" + strPhone);
 
+        if (phoneBook.getName() == "Trần Vân") {
+            holder.img_id.setImageResource(R.drawable.ic_t);
+        } else if (phoneBook.getName() == "Hồ An") {
+            holder.img_id.setImageResource(R.drawable.ic_h2);
+        } else if (phoneBook.getName() == "Anh Hải") {
+            holder.img_id.setImageResource(R.drawable.ic_aphone);
+        } else if (phoneBook.getName() == "Bá Bảo") {
+            holder.img_id.setImageResource(R.drawable.ic_b);
+        } else if (phoneBook.getName() == "Tấn Sang") {
+            holder.img_id.setImageResource(R.drawable.ic_t);
+        } else if (phoneBook.getName() == "Thu Thủy") {
+            holder.img_id.setImageResource(R.drawable.ic_t);
+        } else if (phoneBook.getName() == "Huy Hoàng") {
+            holder.img_id.setImageResource(R.drawable.ic_h);
+        }
+
         //hiển thị chi tiết khi click vào item
         holder.lntop.setOnClickListener(view -> {
             mCurrentSelected = position;
@@ -106,12 +128,14 @@ public class PhoneBookAdapter extends RecyclerView.Adapter<PhoneBookAdapter.Phon
             strName = phoneBook.getName();
             strPhone = phoneBook.getPhone();
             Log.d("Detail: ", strId + " - " + strPhone);
-
         });
     }
 
     @Override
     public int getItemCount() {
+        //hiển thị ra số điện thoại
+        displaySize.size(phoneBooks.size());
+        Log.d("///", "size ");
         return phoneBooks.size();
     }
 
@@ -139,6 +163,8 @@ public class PhoneBookAdapter extends RecyclerView.Adapter<PhoneBookAdapter.Phon
             img_otherpb = itemView.findViewById(R.id.img_otherpb);
             img_search = itemView.findViewById(R.id.img_search);
             imgdeleteNumber = itemView.findViewById(R.id.imgdeleteNumber);
+
+
             lnbottom.setOnClickListener(view -> {
                 details.setVisibility(View.GONE);
             });
@@ -148,6 +174,7 @@ public class PhoneBookAdapter extends RecyclerView.Adapter<PhoneBookAdapter.Phon
                 @Override
                 public void onClick(View view) {
                     phoneBooks.remove(getAdapterPosition());
+                    Toast.makeText(context.getApplicationContext(), "Đã xóa " + strName+" thành công ", Toast.LENGTH_SHORT).show();
                     notifyDataSetChanged();
                 }
             });
@@ -168,6 +195,8 @@ public class PhoneBookAdapter extends RecyclerView.Adapter<PhoneBookAdapter.Phon
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, MessengerActivity.class);
+                    String username = tvName.getText().toString().trim();
+                    intent.putExtra("username", username);
                     context.startActivity(intent);
                 }
             });
@@ -196,5 +225,10 @@ public class PhoneBookAdapter extends RecyclerView.Adapter<PhoneBookAdapter.Phon
 
     public interface UpdateNumber {
         void update(String number);
+    }
+
+    //hiển thị chuỗi tổng list
+    public interface DisplaySize {
+        void size(int size);
     }
 }

@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -24,9 +25,11 @@ import com.example.logindemo.model.PhoneBook;
 import java.util.ArrayList;
 
 public class DetailsPhoneBookActivity extends AppCompatActivity {
-    ImageView imgbackphonebook, imgcallpb, imgmessagepb, imgotherpb;
+    ImageView imgbackphonebook, imgcallpb, imgmessagepb, imgotherpb, imgsharepb;
     Button btndiarypb;
     TextView tvNamePhoneNumber, tvNumberPhone;
+    TextView tvNameCache,tvPhoneCache;
+
 
     //Xóa phần tử
     private PhoneBookAdapter phoneBookAdapter;
@@ -45,6 +48,10 @@ public class DetailsPhoneBookActivity extends AppCompatActivity {
         tvNamePhoneNumber = findViewById(R.id.tvNamePhoneNumber);
         tvNumberPhone = findViewById(R.id.tvNumberPhone);
 
+        imgsharepb = findViewById(R.id.imgsharepb);
+        imgsharepb.setOnClickListener(view -> {
+            menuShare(view);
+        });
 
         //nhận dữ liệu
         String name = getIntent().getStringExtra("user");
@@ -69,6 +76,8 @@ public class DetailsPhoneBookActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DetailsPhoneBookActivity.this, MessengerActivity.class);
+                String username = tvNamePhoneNumber.getText().toString().trim();
+                intent.putExtra("username", username);
                 startActivity(intent);
             }
         });
@@ -105,6 +114,33 @@ public class DetailsPhoneBookActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void menuShare(View view) {
+        PopupMenu menu = new PopupMenu(this, imgsharepb);
+        menu.inflate(R.menu.menu_sharepb);
+
+        menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.mn_filecard:
+                        Intent mailIntent = new Intent(Intent.ACTION_VIEW);
+                        Uri data = Uri.parse("mailto:? subject=" + "Android Developer" + "&body=" + "Hey!" + "&to=" + "abc123@gmail.com");
+                        mailIntent.setData(data);
+                        startActivity(Intent.createChooser(mailIntent, "Send Mail"));
+                        break;
+                    case R.id.mn_doucument:
+                        Intent mailIntent1 = new Intent(Intent.ACTION_VIEW);
+                        Uri data1 = Uri.parse("mailto:? subject=" + "Android Developer" + "&body=" + "Hey!" + "&to=" + "abc123@gmail.com");
+                        mailIntent1.setData(data1);
+                        startActivity(Intent.createChooser(mailIntent1, "Send Mail."));
+                        break;
+                }
+                return false;
+            }
+        });
+        menu.show();
+    }
+
     public void menudetailsphone(View view) {
         PopupMenu menu = new PopupMenu(this, imgotherpb);
         menu.inflate(R.menu.menu_settingdetailspb);
@@ -132,10 +168,16 @@ public class DetailsPhoneBookActivity extends AppCompatActivity {
     public void goDiary(View view) {
         Intent intent = new Intent(DetailsPhoneBookActivity.this, DiaryPhoneBookActivity.class);
         startActivity(intent);
+
     }
 
     public void goPositionCache(View view) {
         Intent intent = new Intent(DetailsPhoneBookActivity.this, PossitionCacheActivity.class);
+        //truyền dữ liệu qua vị trí bộ nhớ
+        String username = tvNamePhoneNumber.getText().toString().trim();
+        String phonenum = tvNumberPhone.getText().toString();
+        intent.putExtra("username", username);
+        intent.putExtra("PhoneNumber", phonenum);
         startActivity(intent);
     }
 
@@ -161,5 +203,6 @@ public class DetailsPhoneBookActivity extends AppCompatActivity {
         });
         dialog.show();
     }
+
 
 }

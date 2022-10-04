@@ -65,6 +65,7 @@
                 android:fontFamily="@font/roboto_bold"
                 android:gravity="center|left"
                 android:text="It me"
+                android:id="@+id/tvNameCache"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
@@ -73,6 +74,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20sp"
                 android:gravity="center|left"
+                android:id="@+id/tvPhoneCache"
                 android:text="Số điện thoại:0399075408"
                 android:textColor="@color/black"
                 android:textSize="20dp" />

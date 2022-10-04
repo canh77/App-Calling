@@ -1,5 +1,6 @@
 package com.example.logindemo.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -40,15 +41,16 @@ import com.example.logindemo.model.PhoneBook;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class PhoneBookragment extends Fragment implements PhoneBookAdapter.UpdateNumber, MainActivity.Test, MainActivity.DisplayNumber {
+public class PhoneBookragment extends Fragment implements PhoneBookAdapter.UpdateNumber, MainActivity.Test, MainActivity.DisplayNumber, PhoneBookAdapter.DisplaySize {
     RecyclerView rvphonebook;
     ImageView img_search, img_otherpb;
     Intent intent;
     PhoneBookAdapter phoneBookAdapter;
-    TextView tvName, tvPhoneNumber;
+    TextView tvName, tvPhoneNumber, tvSLPhone;
 
     //khai báo biến toàn cục
     private ArrayList<PhoneBook> phoneBooks;
+
     private PhoneBookAdapter adapter;
 
     public PhoneBookragment() {
@@ -56,12 +58,12 @@ public class PhoneBookragment extends Fragment implements PhoneBookAdapter.Updat
     }
 
     //gắn fr vào ac và kiểm tra dữ liệu fragment có trùng với MainAC
-
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         if (context instanceof MainActivity) {
             ((MainActivity) context).setDisplayNumber(this);
+
         }
     }
 
@@ -82,7 +84,6 @@ public class PhoneBookragment extends Fragment implements PhoneBookAdapter.Updat
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_danhba, container, false);
-
     }
 
     @Override
@@ -103,26 +104,18 @@ public class PhoneBookragment extends Fragment implements PhoneBookAdapter.Updat
         phoneBooks = new ArrayList<>();
         phoneBooks.add(new PhoneBook("1", "Trần Vân", "0123452345"));
         phoneBooks.add(new PhoneBook("2", "Hồ An", " 012347859"));
-        phoneBooks.add(new PhoneBook("3", "Vân Anh", "0321654789"));
-        phoneBooks.add(new PhoneBook("4", "Nguyễn Bảo", "01111111454"));
+        phoneBooks.add(new PhoneBook("3", "Anh Hải", "0321654789"));
+        phoneBooks.add(new PhoneBook("4", "Bá Bảo", "01111111454"));
         phoneBooks.add(new PhoneBook("5", "Tấn Sang", "01122334455"));
-        phoneBooks.add(new PhoneBook("6", "Ngọc Quỳnh", " 0456789123"));
-        phoneBooks.add(new PhoneBook("7", "Thu Thủy", "0456789129"));
+        phoneBooks.add(new PhoneBook("6", "Thu Thủy", " 0456789123"));
+        phoneBooks.add(new PhoneBook("7", "Huy Hoàng", "0456789129"));
         phoneBooks.add(new PhoneBook("8", "Kim Hoa", "078456723"));
         phoneBooks.add(new PhoneBook("9", "Văn Nam", "0984567891"));
-        phoneBooks.add(new PhoneBook("10", "Huy Hoàng", "04567666"));
+        phoneBooks.add(new PhoneBook("10", "Ngọc Quỳnh", "04567666"));
 
-        //cập nhật lại list c1 set vị trí mới
+        //cập nhật lại list cách 1 set vị trí mới
 //        phoneBooks.set(2, new PhoneBook("2", "Hồ An2", " 0123478596"));
-//        adapter.notifyDataSetChanged();
-
-
-        //c2 set lại vị trí mới bằng tất cả các thuộc tính
-//        phoneBooks.get(2).setId("23");
-//        phoneBooks.get(2).setName("23");
-//        phoneBooks.get(2).setPhone("23");
-
-        adapter = new PhoneBookAdapter(phoneBooks,this.getContext());
+        adapter = new PhoneBookAdapter(phoneBooks, this.getContext(),this::size);
 
         //mapping trong fragment
         rvphonebook = view.findViewById(R.id.rvphonebook);
@@ -130,8 +123,9 @@ public class PhoneBookragment extends Fragment implements PhoneBookAdapter.Updat
         img_otherpb = view.findViewById(R.id.img_otherpb);
         tvPhoneNumber = view.findViewById(R.id.tvPhoneNumber);
         tvName = view.findViewById(R.id.tvName);
+        tvSLPhone = view.findViewById(R.id.tvSLPhone);
 
-
+        //truyền dữ liệu qua rv
         img_otherpb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -141,9 +135,6 @@ public class PhoneBookragment extends Fragment implements PhoneBookAdapter.Updat
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()) {
-                            case R.id.mn_deletepbook:
-                                Toast.makeText(view.getContext(), "xóa danh bạ", Toast.LENGTH_SHORT).show();
-                                break;
                             case R.id.mn_sharepbook:
                                 Toast.makeText(view.getContext(), "Chia sẻ danh bạ", Toast.LENGTH_SHORT).show();
                                 break;
@@ -187,7 +178,7 @@ public class PhoneBookragment extends Fragment implements PhoneBookAdapter.Updat
         });
 
         //khởi tạo đối tượng Adapter
-        phoneBookAdapter = new PhoneBookAdapter(phoneBooks, getContext(), this::update);
+        phoneBookAdapter = new PhoneBookAdapter(phoneBooks, getContext(), this, this);
 
         //xác định layout
         rvphonebook.setLayoutManager(new GridLayoutManager(getContext(), 1));
@@ -224,5 +215,12 @@ public class PhoneBookragment extends Fragment implements PhoneBookAdapter.Updat
         phoneBookAdapter.notifyDataSetChanged();
     }
 
+    //implement interface
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void size(int size) {
+        phoneBooks.size();
+        tvSLPhone.setText("Danh bạ có "+ size +" số điện thoại");
+    }
 
 }

@@ -18,9 +18,23 @@ public class PhoneBook {
         return id;
     }
 
+
     public void setId(String id) {
         this.id = id;
     }
+
+
+//    public String getStt(int statuss){
+//        String stts = "";
+//        if (statuss == 0){
+//            stts = "Trần Vân";
+//        }else if (statuss == 1){
+//            stts ="Hồ An";
+//        }else if (statuss == 2){
+//            stts ="Vân Anh";
+//        }
+//        return  stts;
+//    }
 
     public String getName() {
         return name;

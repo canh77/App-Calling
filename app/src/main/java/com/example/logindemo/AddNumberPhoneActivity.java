@@ -36,8 +36,6 @@ public class AddNumberPhoneActivity extends AppCompatActivity {
         String username = getIntent().getStringExtra("PhoneNumber");
         edPhonepb.setText(username);
 
-
-        //truyền dữ liệu
         btnSave.setOnClickListener(view -> {
             String userName = edNamepb.getText().toString().trim();
             String phoneNumber = edPhonepb.getText().toString();
@@ -56,6 +54,7 @@ public class AddNumberPhoneActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
     }
 
     public void cancel(View view) {

@@ -10,6 +10,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
     private ViewPageAdapter mAdapter;
     private TabLayout mTabLayout;
     private ViewPager2 mViewPager2;
-    private  Test test;
-    private  DisplayNumber displayNumber;
-    private  boolean check;
+    private Test test;
+    private DisplayNumber displayNumber;
+    private boolean check;
     //Image
     ImageView img_add, img_search;
 
@@ -69,18 +70,22 @@ public class MainActivity extends AppCompatActivity {
 //        animal.getTen2();
 //        animal.coin+=5;
 
-        img_add = findViewById(R.id.img_add);
-        img_search = findViewById(R.id.img_search);
+//        img_add = findViewById(R.id.img_add);
+//        img_search = findViewById(R.id.img_search);
 
         mAdapter = new ViewPageAdapter(this);
         mTabLayout = findViewById(R.id.tabLayout);
         mViewPager2 = findViewById(R.id.viewPager);
         mViewPager2.setAdapter(mAdapter);
 
+//        mTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+//        mTabLayout.setupWithViewPager();
+
         new TabLayoutMediator(mTabLayout, mViewPager2, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 tab.setText(MainActivity.this.getResources().getString(mTabTitles[position]));
+                mTabLayout.setTabTextColors(Color.parseColor("#627179"), Color.parseColor("#BF4A32"));
             }
         }).attach();
     }
@@ -98,34 +103,34 @@ public class MainActivity extends AppCompatActivity {
             final String result = data.getStringExtra(AddNumberPhoneActivity.EXTRA_DATA);
             //lấy dữ liệu
             final String name = data.getStringExtra("name");
-            final String  phone = data.getStringExtra("phone");
-//            Toast.makeText(this, "Add successful: " + phone , Toast.LENGTH_SHORT).show();
+            final String phone = data.getStringExtra("phone");
             //Tạo đối tượng để lấy rồi add vào
-            PhoneBook phoneBook = new PhoneBook("0",name,phone);
+            PhoneBook phoneBook = new PhoneBook("0", name, phone);
             displayNumber.display(phoneBook);
+
         } else {
-            Toast.makeText(this, "Không có data trả về", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Không có data trả về", Toast.LENGTH_SHORT).show();
         }
     }
 //    @Override
 //    public void onBackPressed() {
 //      //  super.onBackPressed();
 //        test.show();
-//
 //    }
 
-    public interface Test{
+    public interface Test {
         void show();
     }
 
-    public void setTest(Test test){
+    public void setTest(Test test) {
         this.test = test;
     }
 
-    public interface DisplayNumber{
+    public interface DisplayNumber {
         void display(PhoneBook phoneBook);
     }
-    public  void  setDisplayNumber(DisplayNumber displayNumber){
+
+    public void setDisplayNumber(DisplayNumber displayNumber) {
         this.displayNumber = displayNumber;
     }
 
